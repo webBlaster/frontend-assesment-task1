@@ -1,0 +1,17 @@
+.todo {
+  padding: 5%;
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.navigation a {
+  margin-left: 10px;
+}
+
+.todo-container {
+  margin-top: 100px;
+}
