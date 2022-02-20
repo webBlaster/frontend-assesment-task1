@@ -5,7 +5,7 @@
 .navigation {
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 50;
 }
 
 .navigation a {
@@ -14,4 +14,25 @@
 
 .todo-container {
   margin-top: 100px;
+}
+
+.add-button {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+
+.add-form {
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.582);
+}
+
+.add-form .card {
+  width: 60%;
+  padding: 6%;
+  margin: 30vh auto;
 }
