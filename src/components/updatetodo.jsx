@@ -1,8 +1,8 @@
 import { useState } from "react";
 const UpdateTodo = ({ currentTodo, id, updateItem, toggle, toggleForm }) => {
   const [todo, setTodo] = useState({
-    title: "",
-    body: "",
+    title: currentTodo.title,
+    body: currentTodo.body,
   });
 
   const handleInput = (event) =>
