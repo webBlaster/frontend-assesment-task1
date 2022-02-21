@@ -31,8 +31,16 @@
   background-color: rgba(0, 0, 0, 0.582);
 }
 
-.add-form .card {
-  width: 60%;
-  padding: 6%;
-  margin: 30vh auto;
+.form-container {
+  position: fixed;
+  z-index: 101;
+  width: 80%;
+
+  top: 20vh;
+  margin-left: 10%;
+}
+
+.form-container form {
+  padding: 5%;
+  border-radius: 5px;
 }

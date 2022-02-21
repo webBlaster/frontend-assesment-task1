@@ -1,7 +1,22 @@
 import { useState } from "react";
 const AddTodo = ({ addItem }) => {
   const [toggle, setToggle] = useState(true);
+  const [todo, setTodo] = useState({
+    title: "",
+    body: "",
+  });
+
   const toggleForm = () => setToggle(!toggle);
+
+  const handleInput = (event) =>
+    setTodo({ ...todo, [event.target.name]: event.target.value });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addItem(todo);
+    event.target.reset();
+    toggleForm();
+  };
 
   return (
     <>
@@ -12,22 +27,34 @@ const AddTodo = ({ addItem }) => {
         <i className="material-icons">add</i>
       </a>
 
-      <div className="add-form" hidden={toggle} onClick={toggleForm}>
-        <form className="col s12 card">
-          <div className="row">
-            <div className="input-field col s12">
-              <input id="password" type="password" className="validate" />
-              <label for="password">Password</label>
-            </div>
-          </div>
-          <div className="row">
-            <div class="input-field col s12">
-              <input id="email" type="email" class="validate" />
-              <label for="email">Email</label>
-            </div>
-          </div>
+      <span className="form-container" hidden={toggle}>
+        <form className="white" onSubmit={handleSubmit}>
+          <h3>Add New Todo</h3>
+          <input
+            name="title"
+            type="text"
+            required
+            placeholder="Title"
+            onChange={handleInput}
+            defaultValue=""
+          />
+          <input
+            name="body"
+            type="text"
+            required
+            placeholder="Body"
+            onChange={handleInput}
+            defaultValue=""
+          />
+          <input
+            type="submit"
+            className="btn green waves-effect"
+            value="Create"
+          />
         </form>
-      </div>
+      </span>
+
+      <div className="add-form" hidden={toggle} onClick={toggleForm}></div>
     </>
   );
 };

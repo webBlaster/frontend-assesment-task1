@@ -2,8 +2,8 @@ const Header = () => {
   return (
     <>
       <nav className="navigation">
-        <div class="nav-wrapper blue">
-          <a href="#" class="brand-logo">
+        <div className="nav-wrapper blue">
+          <a href="#" className="brand-logo">
             Todo
           </a>
         </div>
