@@ -1,42 +1,32 @@
 import { useState } from "react";
-const AddTodo = ({ addItem }) => {
-  const [toggle, setToggle] = useState(true);
+const UpdateTodo = ({ currentTodo, id, updateItem, toggle, toggleForm }) => {
   const [todo, setTodo] = useState({
     title: "",
     body: "",
   });
-
-  const toggleForm = () => setToggle(!toggle);
 
   const handleInput = (event) =>
     setTodo({ ...todo, [event.target.name]: event.target.value });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addItem(todo);
+    updateItem(id, todo);
     event.target.reset();
     toggleForm();
   };
 
   return (
     <>
-      <a
-        className="btn-floating btn-large waves-effect waves-light green center-align add-button"
-        onClick={toggleForm}
-      >
-        <i className="material-icons">add</i>
-      </a>
-
       <span className="form-container" hidden={toggle}>
         <form className="white" onSubmit={handleSubmit}>
-          <h4>Add New Todo</h4>
+          <h4>Update Todo</h4>
           <input
             name="title"
             type="text"
             required
             placeholder="Title"
             onChange={handleInput}
-            defaultValue=""
+            defaultValue={currentTodo?.title}
           />
           <input
             name="body"
@@ -44,12 +34,12 @@ const AddTodo = ({ addItem }) => {
             required
             placeholder="Body"
             onChange={handleInput}
-            defaultValue=""
+            defaultValue={currentTodo?.body}
           />
           <input
             type="submit"
             className="btn green waves-effect"
-            value="Create"
+            value="Update"
           />
         </form>
       </span>
@@ -59,4 +49,4 @@ const AddTodo = ({ addItem }) => {
   );
 };
 
-export default AddTodo;
+export default UpdateTodo;

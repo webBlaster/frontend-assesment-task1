@@ -28,6 +28,7 @@
   z-index: 100;
   position: fixed;
   top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.582);
 }
 
@@ -35,12 +36,12 @@
   position: fixed;
   z-index: 101;
   width: 80%;
-
   top: 20vh;
-  margin-left: 10%;
+  left: 10%;
+  right: 10%;
 }
 
 .form-container form {
-  padding: 5%;
+  padding: 10%;
   border-radius: 5px;
 }
