@@ -1,16 +1,10 @@
-import { useState } from "react";
 const UpdateTodo = ({ currentTodo, id, updateItem, toggle, toggleForm }) => {
-  const [todo, setTodo] = useState({
-    title: currentTodo?.title,
-    body: currentTodo?.body,
-  });
-
-  const handleInput = (event) =>
-    setTodo({ ...todo, [event.target.name]: event.target.value });
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateItem(id, todo);
+    updateItem(id, {
+      title: event.target.title.value,
+      body: event.target.body.value,
+    });
     event.target.reset();
     toggleForm();
   };
@@ -25,7 +19,6 @@ const UpdateTodo = ({ currentTodo, id, updateItem, toggle, toggleForm }) => {
             type="text"
             required
             placeholder="Title"
-            onChange={handleInput}
             defaultValue={currentTodo?.title}
           />
           <input
@@ -33,7 +26,6 @@ const UpdateTodo = ({ currentTodo, id, updateItem, toggle, toggleForm }) => {
             type="text"
             required
             placeholder="Body"
-            onChange={handleInput}
             defaultValue={currentTodo?.body}
           />
           <input
