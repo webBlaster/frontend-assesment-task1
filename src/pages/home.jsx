@@ -12,10 +12,14 @@ const Home = () => {
 
   const addItem = (todo) => {
     let todoId = uuidv4();
-    let userId = 1;
-    let todoList = [{ userId: userId, id: todoId, ...todo }];
-    let newTodoList = [...todoList, ...todos];
-    setTodos(newTodoList);
+    if (todo.title.trim() && todo.body.trim() !== "") {
+      let userId = 1;
+      let todoList = [{ userId: userId, id: todoId, ...todo }];
+      let newTodoList = [...todoList, ...todos];
+      setTodos(newTodoList);
+      return;
+    }
+    alert("cant input empty spaces");
   };
 
   const removeItem = (id) => {
@@ -26,9 +30,13 @@ const Home = () => {
   const updateItem = (id, todo) => {
     let index = todos.findIndex((todo) => todo.id == id);
     let newTodos = todos;
-    newTodos[index].title = todo.title;
-    newTodos[index].body = todo.body;
-    setTodos(newTodos);
+    if (todo.title.trim() && todo.body.trim() !== "") {
+      newTodos[index].title = todo.title;
+      newTodos[index].body = todo.body;
+      setTodos(newTodos);
+      return;
+    }
+    alert("cant input empty spaces");
   };
 
   useEffect(async () => {
